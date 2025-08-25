@@ -1,0 +1,3083 @@
+Sample Sentences:
+        Version 2.13 | September 2024  DoD-CIO-00003 (ZRIN 0790-ZA19)  CMMC Assessment Guide  Level 2       CMMC Assessment Guide – Level 2   Version 2.13 ii    NOTICES  The contents of this document do not have the force and effect of law and are not meant to  bind the public in any way.
+This document is intended only to provide clarity to the public  regarding existing requirements under the law or departmental policies.
+[DISTRIBUTION STATEMENT A] Approved for public release.
+CMMC Assessment Guide – Level 2   Version 2.13 iii    TABLE OF CONTENTS  Introduction .......................................................................................................................... 1  Level 2 Description ....................................................................................................................... 1  Purpose and Audience ................................................................................................................. 2  Assessment and Certification ................................................................................................. 3  Assessment Scope ........................................................................................................................ 3  CMMC-Custom Terms ............................................................................................................ 4  Assessment Criteria and Methodology ................................................................................... 7  Criteria ......................................................................................................................................... 8  Methodology................................................................................................................................ 8  Assessment Findings .................................................................................................................... 9  Requirement Descriptions ................................................................................................... 12  Introduction ............................................................................................................................... 12  Access Control (AC).............................................................................................................. 14  AC.L2-3.1.1 – Authorized Access Control [CUI Data] ........................................................................... 14  AC.L2-3.1.2 – Transaction & Function Control .................................................................................... 17  AC.L2-3.1.3 – Control CUI Flow ............................................................................................................ 19  AC.L2-3.1.4 – Separation of Duties ...................................................................................................... 22  AC.L2-3.1.5 – Least Privilege ................................................................................................................ 24  AC.L2-3.1.6 – Non-Privileged Account Use .......................................................................................... 27  AC.L2-3.1.7 – Privileged Functions ...................................................................................................... 29  AC.L2-3.1.8 – Unsuccessful Logon Attempts ....................................................................................... 32  AC.L2-3.1.9 – Privacy & Security Notices ............................................................................................. 34  AC.L2-3.1.10 – Session Lock ................................................................................................................. 36  AC.L2-3.1.11 – Session Termination .................................................................................................... 38  AC.L2-3.1.12 – Control Remote Access ............................................................................................... 40  AC.L2-3.1.13 – Remote Access Confidentiality .................................................................................... 43  AC.L2-3.1.14 – Remote Access Routing ............................................................................................... 45  AC.L2-3.1.15 – Privileged Remote Access ............................................................................................ 47        CMMC Assessment Guide – Level 2   Version 2.13 iv    AC.L2-3.1.16 – Wireless Access Authorization .................................................................................... 50  AC.L2-3.1.17 – Wireless Access Protection ......................................................................................... 52  AC.L2-3.1.18 – Mobile Device Connection .......................................................................................... 54  AC.L2-3.1.19 – Encrypt CUI on Mobile................................................................................................. 56  AC.L2-3.1.20 – External Connections [CUI Data] ................................................................................. 58  AC.L2-3.1.21 – Portable Storage Use ................................................................................................... 61  AC.L2-3.1.22 – Control Public Information [CUI Data] ........................................................................ 63  Awareness and Training (AT) ............................................................................................... 65  AT.L2-3.2.1 – Role-Based Risk Awareness ........................................................................................... 65  AT.L2-3.2.2 – Role-Based Training ....................................................................................................... 68  AT.L2-3.2.3 – Insider Threat Awareness .............................................................................................. 70  Audit and Accountability (AU) ............................................................................................. 72  AU.L2-3.3.1 – System Auditing ............................................................................................................ 72  AU.L2-3.3.2 – User Accountability ....................................................................................................... 75  AU.L2-3.3.3 – Event Review ................................................................................................................. 77  AU.L2-3.3.4 – Audit Failure Alerting .................................................................................................... 79  AU.L2-3.3.5 – Audit Correlation ........................................................................................................... 81  AU.L2-3.3.6 – Reduction & Reporting.................................................................................................. 83  AU.L2-3.3.7 – Authoritative Time Source ............................................................................................ 85  AU.L2-3.3.8 – Audit Protection ............................................................................................................ 87  AU.L2-3.3.9 – Audit Management ....................................................................................................... 89  Configuration Management (CM) ........................................................................................ 91  CM.L2-3.4.1 – System Baselining ......................................................................................................... 91  CM.L2-3.4.2 – Security Configuration Enforcement ............................................................................ 94  CM.L2-3.4.3 – System Change Management ...................................................................................... 96  CM.L2-3.4.4 – Security Impact Analysis ............................................................................................... 98  CM.L2-3.4.5 – Access Restrictions for Change................................................................................... 100  CM.L2-3.4.6 – Least Functionality ..................................................................................................... 103  CM.L2-3.4.7 – Nonessential Functionality ......................................................................................... 105  CM.L2-3.4.8 – Application Execution Policy ...................................................................................... 108  CM.L2-3.4.9 – User-Installed Software .............................................................................................. 110        CMMC Assessment Guide – Level 2   Version 2.13 v    Identification and Authentication (IA) ................................................................................. 112  IA.L2-3.5.1 – Identification [CUI Data] ............................................................................................... 112  IA.L2-3.5.2 – Authentication [CUI Data] ............................................................................................ 114  IA.L2-3.5.3 – Multifactor Authentication ........................................................................................... 117  IA.L2-3.5.4 – Replay-Resistant Authentication .................................................................................. 120  IA.L2-3.5.5 – Identifier Reuse ............................................................................................................ 122  IA.L2-3.5.6 – Identifier Handling ........................................................................................................ 124  IA.L2-3.5.7 – Password Complexity ................................................................................................... 126  IA.L2-3.5.8 – Password Reuse ............................................................................................................ 128  IA.L2-3.5.9 – Temporary Passwords .................................................................................................. 130  IA.L2-3.5.10 – Cryptographically-Protected Passwords .................................................................... 132  IA.L2-3.5.11 – Obscure Feedback ...................................................................................................... 134  Incident Response (IR) ........................................................................................................ 136  IR.L2-3.6.1 – Incident Handling .......................................................................................................... 136  IR.L2-3.6.2 – Incident Reporting ........................................................................................................ 139  IR.L2-3.6.3 – Incident Response Testing ............................................................................................ 142  Maintenance (MA) ............................................................................................................. 144  MA.L2-3.7.1 – Perform Maintenance ................................................................................................ 144  MA.L2-3.7.2 – System Maintenance Control ..................................................................................... 146  MA.L2-3.7.3 – Equipment Sanitization .............................................................................................. 148  MA.L2-3.7.4 – Media Inspection ........................................................................................................ 150  MA.L2-3.7.5 – Nonlocal Maintenance ............................................................................................... 152  MA.L2-3.7.6 – Maintenance Personnel ............................................................................................. 155  Media Protection (MP) ....................................................................................................... 157  MP.L2-3.8.1 – Media Protection ........................................................................................................ 157  MP.L2-3.8.2 – Media Access .............................................................................................................. 159  MP.L2-3.8.3 – Media Disposal [CUI Data] .......................................................................................... 161  MP.L2-3.8.4 – Media Markings .......................................................................................................... 163  MP.L2-3.8.5 – Media Accountability ................................................................................................. 165  MP.L2-3.8.6 – Portable Storage Encryption ...................................................................................... 167  MP.L2-3.8.7 – Removeable Media ..................................................................................................... 169  MP.L2-3.8.8 – Shared Media ............................................................................................................. 171        CMMC Assessment Guide – Level 2   Version 2.13 vi    MP.L2-3.8.9 – Protect Backups .......................................................................................................... 173  Personnel Security (PS) ....................................................................................................... 175  PS.L2-3.9.1 – Screen Individuals ........................................................................................................ 175  PS.L2-3.9.2 – Personnel Actions ........................................................................................................ 177  Physical Protection (PE) ...................................................................................................... 180  PE.L2-3.10.1 – Limit Physical Access [CUI Data] ................................................................................ 180  PE.L2-3.10.2 – Monitor Facility .......................................................................................................... 182  PE.L2-3.10.3 – Escort Visitors [CUI Data] ........................................................................................... 184  PE.L2-3.10.4 – Physical Access Logs [CUI Data] ................................................................................. 186  PE.L2-3.10.5 – Manage Physical Access [CUI Data] ........................................................................... 188  PE.L2-3.10.6 – Alternative Work Sites ............................................................................................... 190  Risk Assessment (RA) .......................................................................................................... 192  RA.L2-3.11.1 – RIsk Assessments ....................................................................................................... 192  RA.L2-3.11.2 – Vulnerability Scan ...................................................................................................... 195  RA.L2-3.11.3 – Vulnerability Remediation ......................................................................................... 198  Security Assessment (CA).................................................................................................... 200  CA.L2-3.12.1 – Security Control Assessment ..................................................................................... 200  CA.L2-3.12.2 – operational Plan of Action ......................................................................................... 203  CA.L2-3.12.3 – Security Control Monitoring ...................................................................................... 206  CA.L2-3.12.4 – System Security Plan ................................................................................................. 208  System and Communications Protection (SC) ...................................................................... 211  SC.L2-3.13.1 – Boundary Protection [CUI Data] ................................................................................ 211  SC.L2-3.13.2 – Security Engineering .................................................................................................. 214  SC.L2-3.13.3 – Role Separation .......................................................................................................... 217  SC.L2-3.13.4 – Shared Resource Control ........................................................................................... 219  SC.L2-3.13.5 – Public-Access System Separation [CUI Data] ............................................................. 221  SC.L2-3.13.6 – Network Communication by Exception ..................................................................... 223  SC.L2-3.13.7 – Split Tunneling ........................................................................................................... 225  SC.L2-3.13.8 – Data in Transit ............................................................................................................ 227  SC.L2-3.13.9 – Connections Termination .......................................................................................... 229  SC.L2-3.13.10 – Key Management ..................................................................................................... 231        CMMC Assessment Guide – Level 2   Version 2.13 vii    SC.L2-3.13.11 – CUI Encryption ......................................................................................................... 234  SC.L2-3.13.12 – Collaborative Device Control ................................................................................... 236  SC.L2-3.13.13 – Mobile Code ............................................................................................................. 238  SC.L2-3.13.14 – Voice over Internet Protocol.................................................................................... 240  SC.L2-3.13.15 – Communications Authenticity ................................................................................. 242  SC.L2-3.13.16 – Data at Rest .............................................................................................................. 244  System and Information Integrity (SI) ................................................................................. 246  SI.L2-3.14.1 – Flaw Remediation [CUI Data] ...................................................................................... 246  SI.L2-3.14.2 – Malicious Code Protection [CUI Data] ........................................................................ 249  SI.L2-3.14.3 – Security Alerts & Advisories ........................................................................................ 252  SI.L2-3.14.4 – Update Malicious Code Protection [CUI Data] ........................................................... 254  SI.L2-3.14.5 – System & File Scanning [CUI Data] .............................................................................. 256  SI.L2-3.14.6 – Monitor Communications for Attacks ........................................................................ 258  SI.L2-3.14.7 – Identify Unauthorized Use .......................................................................................... 261  Appendix A – Acronyms and Abbreviations ......................................................................... 264           CMMC Assessment Guide – Level 2   Version 2.13 viii      This page intentionally left blank.
+Introduction  CMMC Assessment Guide – Level 2   Version 2.13 1    Introduction  This document provides guidance in the preparation for and conduct of a Level 2 self- assessment or Level 2 certification assessment under the Cybersecurity Maturity Model  Certification (CMMC) Program as set forth in  section 170.16 of title  32, Code of Federal  Regulations (CFR) and 32 CFR § 170.17 respectively.
+Certification at each CMMC level occurs  independently.
+Guidance for conducting a Level 1 self-assessment can be found in CMMC  Assessment Guide – Level 1.
+Guidance for conducting a Level 3 certification assessment can  be found in CMMC Assessment Guide – Level 3.
+More details on the model can be found in the  CMMC Model Overview document.
+An Assessment as defined in 32 CFR § 170.4  means the testing or evaluation of security  controls to determine the extent to which the controls are implemented correctly, operating as  intended, and producing the desired outcome with respect to meeting the security requirements  for an information system  or organization as defined in 32 CFR § 170.15 to 32 CFR § 170.18.
+For Level 2 there are two types of assessments:  • A self-assessment is the term for the activity performed by an entity to evaluate its own  CMMC Level, as applied to Level 1 and some Level 2.
+• A Level 2 certification assessment is the term for the activity performed by a Certified  Third-Party Assessment Organization (C3PAO)to evaluate the CMMC level of an OSC.
+32 CFR § 170.16(b) describes contract or subcontract eligibility for any contract with a Level  2 self-assessment requirement, and 32 CFR § 170.17(b) describes contract or subcontract  eligibility for any contract with a Level 2 certification assessment requirement.
+Level 2  certification assessment requires the Organization Seeking Assessment ( OSA) achieve the  CMMC Status of either Conditional Level 2 (C3PAO) or Final Level 2 (C3PAO), as described  in 32 § CFR 170.4, obtained through an assessment by an accredited C3PAO.
+Level 2 Description  Level 2 incorporates the security requirements specified in National Institute of Standards  and Technology ( NIST) Special Publication (SP) 800-171 Revision 2, Protecting Controlled  Unclassified Information in Nonfederal Systems and Organizations.
+Level 2 addresses the protection of Controlled Unclassified Information (CUI), as defined in  32 CFR § 2002.4(h):  Information the Government creates or possesses, or that an entity creates or  possesses for or on behalf of the Government, that a law, regulation, or  Government-wide policy requires or permits an agency to handle using  safeguarding or dissemination controls.
+However, CUI does not include classified  information (see paragraph (e) of this section) or information a non -executive  branch entity possesses and maintains in its own systems that did not come from,  or was not created or possessed by or for, an executive branch agency or an entity  acting for an agency.
+Law, regulation, or Government -wide policy may require  or permit safeguarding or dissemination co ntrols in three ways: Requiring or      Introduction  CMMC Assessment Guide – Level 2   Version 2.13 2    permitting agencies to control or protect the information but providing no  specific controls, which makes the information CUI Basic; requiring or  permitting agencies to control or protect the information and providing specific  controls for doing so, which makes the information CUI Specified; or requiring or  permitting agencies to control the information and specifying only some of those  controls, which makes the information CUI Specified, but with CUI Basic controls  where the authority does not specify.
+Level 2 certification assessments provides increased assurance to the DoD that an OSA can  adequately protect CUI at a level commensurate with the adversarial risk, including  protecting information flow with subcontractors in a multi-tier supply chain.
+Purpose and Audience  This guide is intended for assessors, OSAs, cybersecurity professionals, and individuals and  companies that support CMMC efforts.
+
+Named Entities:
+September 2024 - DATE
+2.13 - CARDINAL
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+1 - CARDINAL
+1 - CARDINAL
+2 
+Assessment and Certification - CARDINAL
+3 - CARDINAL
+3 - CARDINAL
+CMMC-Custom - ORG
+4 - CARDINAL
+Assessment Criteria - ORG
+7 - CARDINAL
+Criteria - GPE
+8 - CARDINAL
+8 - CARDINAL
+12 - CARDINAL
+12 - CARDINAL
+Access Control (AC - ORG
+14 - CARDINAL
+CUI Data - ORG
+14 - CARDINAL
+Transaction & Function Control - ORG
+17 - CARDINAL
+22 - CARDINAL
+24 - CARDINAL
+29 - CARDINAL
+32 - CARDINAL
+Privacy & Security Notices - ORG
+36 - CARDINAL
+38 - CARDINAL
+45 - CARDINAL
+2.13 - CARDINAL
+50 - CARDINAL
+Wireless Access Protection - ORG
+52 - CARDINAL
+CUI - ORG
+Mobile - GPE
+56 - CARDINAL
+CUI Data - ORG
+Control Public Information - ORG
+CUI Data - ORG
+Training - PERSON
+65 - CARDINAL
+65 - CARDINAL
+Audit and Accountability - ORG
+72 - CARDINAL
+72 - CARDINAL
+75 - CARDINAL
+77 - CARDINAL
+79 - CARDINAL
+83 - CARDINAL
+85 - CARDINAL
+87 - CARDINAL
+Configuration Management - ORG
+91 - CARDINAL
+91 - CARDINAL
+94 - CARDINAL
+96 - CARDINAL
+98 - CARDINAL
+100 - CARDINAL
+103 - CARDINAL
+Nonessential Functionality - ORG
+105 - CARDINAL
+108 - CARDINAL
+User-Installed Software - ORG
+110 - CARDINAL
+2.13 - CARDINAL
+112 - CARDINAL
+CUI Data - ORG
+112 - CARDINAL
+CUI Data - ORG
+3.5.3 - CARDINAL
+117 - CARDINAL
+Replay-Resistant Authentication - ORG
+120 - CARDINAL
+Identifier Reuse - PERSON
+122 - CARDINAL
+Identifier Handling - PERSON
+124 - CARDINAL
+Password Complexity - ORG
+126 - CARDINAL
+Password Reuse - PERSON
+128 - CARDINAL
+130 - CARDINAL
+Cryptographically-Protected Passwords - ORG
+132 - CARDINAL
+Incident Response - ORG
+IR - ORG
+136 - CARDINAL
+136 - CARDINAL
+139 - CARDINAL
+142 - CARDINAL
+144 - CARDINAL
+Perform Maintenance - PERSON
+144 - CARDINAL
+146 - CARDINAL
+148 - CARDINAL
+Media Inspection - ORG
+150 - CARDINAL
+Nonlocal Maintenance - ORG
+152 - CARDINAL
+Maintenance Personnel - PERSON
+155 - CARDINAL
+Media Protection - ORG
+157 - CARDINAL
+Media Protection - ORG
+157 - CARDINAL
+Media Access - ORG
+159 - CARDINAL
+CUI Data - ORG
+161 - CARDINAL
+Markings - PERSON
+163 - CARDINAL
+Media Accountability - ORG
+165 - CARDINAL
+167 - CARDINAL
+169 - CARDINAL
+171 - CARDINAL
+2.13 - CARDINAL
+Backups - PERSON
+173 - CARDINAL
+Personnel Security - ORG
+175 - CARDINAL
+Screen Individuals - ORG
+175 - CARDINAL
+Personnel Actions - ORG
+177 - CARDINAL
+Physical Protection - ORG
+180 - CARDINAL
+Limit Physical Access - ORG
+CUI Data - ORG
+180 - CARDINAL
+3.10.2 - CARDINAL
+182 - CARDINAL
+3.10.3 - CARDINAL
+CUI Data - ORG
+184 - CARDINAL
+3.10.4 - CARDINAL
+CUI Data - ORG
+186 - CARDINAL
+Manage Physical Access - ORG
+CUI Data - ORG
+188 - CARDINAL
+190 - CARDINAL
+192 - CARDINAL
+192 - CARDINAL
+3.11.2 - CARDINAL
+195 - CARDINAL
+Vulnerability Remediation - ORG
+198 - CARDINAL
+Security Assessment - ORG
+200 - CARDINAL
+3.12.1 - CARDINAL
+Security Control Assessment - ORG
+200 - CARDINAL
+Plan of Action - WORK_OF_ART
+203 - CARDINAL
+206 - CARDINAL
+208 - CARDINAL
+SC - ORG
+211 - CARDINAL
+CUI Data - ORG
+211 - CARDINAL
+214 - CARDINAL
+3.13.3 - CARDINAL
+217 - CARDINAL
+3.13.4 - CARDINAL
+219 - CARDINAL
+CUI Data - ORG
+221 - CARDINAL
+223 - CARDINAL
+225 - CARDINAL
+227 - CARDINAL
+2.13 - CARDINAL
+CUI Encryption - ORG
+234 - CARDINAL
+236 - CARDINAL
+240 - CARDINAL
+242 - CARDINAL
+244 - CARDINAL
+System and Information Integrity - ORG
+246 
+SI.L2-3.14.1 - QUANTITY
+CUI - ORG
+246 - CARDINAL
+CUI Data - ORG
+Security Alerts & Advisories - ORG
+252 - CARDINAL
+CUI Data - ORG
+CUI Data - ORG
+256 - CARDINAL
+264 - CARDINAL
+2.13 - CARDINAL
+2.13 - CARDINAL
+CMMC - ORG
+32 - DATE
+CFR - ORG
+32 - CARDINAL
+CFR § - ORG
+170.17 - CARDINAL
+CMMC - ORG
+CMMC - ORG
+CMMC Assessment Guide - ORG
+CMMC Model Overview - PRODUCT
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+32 - CARDINAL
+CFR - ORG
+170.15 - CARDINAL
+32 - CARDINAL
+CFR § - ORG
+170.18 - CARDINAL
+two - CARDINAL
+CMMC Level - ORG
+CMMC - ORG
+32 - CARDINAL
+CFR § 170.16(b - ORG
+2 - CARDINAL
+32 - CARDINAL
+CFR - ORG
+170.17(b - CARDINAL
+2 - CARDINAL
+the Organization Seeking Assessment ( - ORG
+CMMC Status - ORG
+Conditional Level 2 - ORG
+C3PAO - ORG
+Final Level 2 - ORG
+C3PAO - ORG
+32 - CARDINAL
+§ - NORP
+CFR 170.4 - ORG
+C3PAO - PRODUCT
+National Institute of Standards 
+and Technology - ORG
+800 - CARDINAL
+Protecting Controlled 
+Unclassified Information - ORG
+Nonfederal Systems and Organizations - ORG
+2 - CARDINAL
+Controlled Unclassified Information - ORG
+CUI - ORG
+32 - CARDINAL
+CFR § - ORG
+2002.4(h - CARDINAL
+Information the Government - ORG
+CUI - ORG
+Law - PERSON
+Government - ORG
+three - CARDINAL
+2.13 - CARDINAL
+2 
+ 
+ - DATE
+CUI Basic - ORG
+CUI - ORG
+CUI - ORG
+CUI Basic - ORG
+2 - CARDINAL
+OSA - ORG
+CUI - ORG
+CMMC - ORG
+Level 2 - PRODUCT
+2 - CARDINAL
+Level 2 - PRODUCT
+• Assessment and Certification - ORG
+32 - CARDINAL
+CFR - ORG
+170.16 - CARDINAL
+32 - CARDINAL
+CFR - ORG
+170 - CARDINAL
+17 - CARDINAL
+32 - CARDINAL
+CFR § - PRODUCT
+170.19(c - CARDINAL
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+32 - CARDINAL
+CFR - ORG
+170.2 - CARDINAL
+CMMC - ORG
+Level 2 - PRODUCT
+2.13 - CARDINAL
+3 
+ 
+Assessment and Certification 
+Certified Assessors - EVENT
+32 - CARDINAL
+CFR - ORG
+170.11 - CARDINAL
+Assessing Security Requirements for Controlled Unclassified 
+Information - ORG
+Level 2 - PRODUCT
+the CMMC Assessment Scope - ORG
+32 - CARDINAL
+CFR - ORG
+170.19(c - CARDINAL
+32 - CARDINAL
+CFR - ORG
+170 - CARDINAL
+16 - CARDINAL
+CMMC - ORG
+third - ORDINAL
+Assessment Scope - PERSON
+32 - CARDINAL
+CFR § - ORG
+170.19 - CARDINAL
+The CMMC Assessment Scope - ORG
+OSA - ORG
+CMMC - ORG
+3 - CARDINAL
+the CMMC Assessment Scope - ORG
+first - ORDINAL
+3 - CARDINAL
+Final Level - ORG
+DIBCAC - ORG
+32 - CARDINAL
+CFR § - ORG
+170.18 - CARDINAL
+the CMMC Scop - ORG
+32 - CARDINAL
+CFR § - PRODUCT
+170.19(c - CARDINAL
+DIBCAC - ORG
+the CMMC Scoping Guide - ORG
+32 - CARDINAL
+CFR § - ORG
+170.19(d - CARDINAL
+CMMC - ORG
+1 - CARDINAL
+June 2018 - DATE
+CMMC-Custom Terms 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CMMC-Custom - ORG
+The CMMC Program - ORG
+the CMMC Program - ORG
+Level 2 - PRODUCT
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+32 - CARDINAL
+CFR § 
+ - ORG
+170.15 - CARDINAL
+32 - CARDINAL
+CFR § - ORG
+170.18 - CARDINAL
+OSA - ORG
+C3PAO - PRODUCT
+C3PAO - ORG
+OSA - ORG
+NOT - ORG
+C3PAO - PRODUCT
+CMMC - ORG
+C3PAO - ORG
+Final Level - ORG
+DIBCAC - ORG
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+CMMC - ORG
+NIST SP - ORG
+800 - CARDINAL
+NIST SP - ORG
+1 - CARDINAL
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+OSA - ORG
+CMMC - ORG
+• CMMC Status - ORG
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+The CMMC Status - ORG
+OSA - ORG
+SPRS - ORG
+CMMC Status - ORG
+C3PAO - PRODUCT
+CMMC-Custom Terms 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+§ - NORP
+OSA - ORG
+the Supplier 
+Performance Risk System - FAC
+CMMC - FAC
+CMMC - ORG
+32 - CARDINAL
+CFR - ORG
+170.16(a)(1)(ii - CARDINAL
+Final Level 2 - ORG
+170.16(a)(1)(iii - DATE
+OSA - ORG
+CMMC - ORG
+Conditional Level 2 - ORG
+C3PAO - ORG
+170.17(a)(1)(ii - CARDINAL
+CMMC Status of Conditional - ORG
+C3PAO - ORG
+32 - CARDINAL
+CFR § 170.21(a)(2 - ORG
+Final Level 2 - ORG
+C3PAO - ORG
+170.17(a)(1)(iii - DATE
+CMMC Status of Final Level 2 - ORG
+C3PAO - ORG
+CMMC Assessment Scope - ORG
+C3PAO - PRODUCT
+180 
+days - DATE
+32 - CARDINAL
+CFR § - ORG
+170.21 - CARDINAL
+2 - CARDINAL
+one - CARDINAL
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+CMMC - ORG
+OT - ORG
+Specialized Assets - ORG
+GFE - ORG
+NIST SP - ORG
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+one - CARDINAL
+2 - CARDINAL
+800-171 Rev 2 - PRODUCT
+59 - CARDINAL
+3 - CARDINAL
+402 - CARDINAL
+4 - CARDINAL
+5 - CARDINAL
+Appendix B - PERSON
+54 - CARDINAL
+CMMC-Custom Terms 
+CMMC Assessment Guide - ORG
+OSA - ORG
+• Organization - ORG
+OSA - ORG
+Organization-Defined Parameter - ORG
+OSA - ORG
+OSA - ORG
+one year - DATE
+CMMC - ORG
+OSA - ORG
+one year - DATE
+• Security Protection Data - ORG
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+Security Protection Assets - ORG
+SPA - ORG
+SPD - ORG
+SPA - ORG
+SPA - ORG
+• System Security Plan - ORG
+SSP - ORG
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+NIST SP - ORG
+5 - CARDINAL
+• Temporary - ORG
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+CMMC - ORG
+6 - CARDINAL
+1 R1 - CARDINAL
+2022 - DATE
+Appendix B. - PERSON
+55  
+ 
+ 
+Assessment Criteria - MONEY
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+The CMMC Assessment Guide - ORG
+2 - CARDINAL
+800-171A Section 2.17 - PRODUCT
+findin gs - PERSON
+• Specifications - ORG
+• Mechanisms - ORG
+• Individuals - ORG
+7 - CARDINAL
+Assessing Security Requirements for Controlled Unclassified Information - ORG
+June 2018 - DATE
+pp. - GPE
+5 - CARDINAL
+Assessment Criteria - PERSON
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+three - CARDINAL
+Criteria 
+Assessment - ORG
+NIST SP - ORG
+OSA - ORG
+CMMC - ORG
+OSA - ORG
+OSA - ORG
+Level - ORG
+2 - CARDINAL
+three - CARDINAL
+NIST SP - ORG
+NIST SP - ORG
+Certified Assessors - WORK_OF_ART
+CUI - ORG
+Appendix - PERSON
+32 - CARDINAL
+CFR - ORG
+170.2 - CARDINAL
+8 - CARDINAL
+5 - CARDINAL
+Assessment Criteria - PERSON
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+OSA - ORG
+Interviews - ORG
+OSA - ORG
+OSA - ORG
+Assessment Findings - PERSON
+CMMC - ORG
+one - CARDINAL
+three - CARDINAL
+32 - CARDINAL
+CFR § - ORG
+170.24 - CARDINAL
+Assessment Criteria - PERSON
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+OSA - ORG
+MET - ORG
+2 - CARDINAL
+MET - ORG
+Enduring Exceptions - ORG
+MET - ORG
+Temporary - ORG
+MET - ORG
+One - CARDINAL
+OSA - ORG
+2 - CARDINAL
+OSA - ORG
+Public-Access System Separation - ORG
+2-3.13.5 - CARDINAL
+the CMMC Assessment Scope - ORG
+MET - ORG
+DoD CIO - ORG
+the DoD CIO - ORG
+MET - ORG
+MET - ORG
+MET - ORG
+CMMC - ORG
+One - CARDINAL
+Assessment Criteria - PERSON
+CMMC Assessment Guide - ORG
+N/A. - ORG
+one - CARDINAL
+an External Service Provider - ORG
+32 - CARDINAL
+CFR - ORG
+170.4 - CARDINAL
+MET - ORG
+External Service Provider - ORG
+OSA - ORG
+2.13 - CARDINAL
+first - ORDINAL
+32 - CARDINAL
+CFR - ORG
+170.14(c - CARDINAL
+• Requirement Number, Name - ORG
+DD.L#-REQ - ORG
+CMMC - ORG
+MET - ORG
+NIST SP - ORG
+• Potential Assessment Methods - ORG
+NIST SP - ORG
+800 - CARDINAL
+NIST - ORG
+2 - CARDINAL
+CMMC - ORG
+CMMC - ORG
+9 - CARDINAL
+4 - CARDINAL
+10 - CARDINAL
+pp - GPE
+4-5 - CARDINAL
+2.13 - CARDINAL
+NIST SP - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+Limit - ORG
+11 - CARDINAL
+11 - CARDINAL
+9 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+15 
+ 
+ - DATE
+AC - ORG
+L2-3.1.1 - CARDINAL
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+12 - CARDINAL
+10 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+16 - DATE
+KEY - ORG
+2 - CARDINAL
+52.204-21 - DATE
+Transaction & Function Control 
+CMMC Assessment Guide - ORG
+17 
+ 
+AC.L2-3.1.2 - DATE
+TRANSACTION & FUNCTION CONTROL 
+Limit - ORG
+13 - CARDINAL
+NIST SP - ORG
+9 - CARDINAL
+14 - CARDINAL
+pp - GPE
+10-11 - CARDINAL
+Transaction & Function Control 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+18 - DATE
+Limit - ORG
+Limit - ORG
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 3.1.2 - CARDINAL
+52.204-21 - DATE
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+2]16 - CARDINAL
+15 - CARDINAL
+NIST SP 800-171A - ORG
+10 - CARDINAL
+16 - CARDINAL
+11 - CARDINAL
+third - ORDINAL
+one - CARDINAL
+CUI - ORG
+CUI - ORG
+21 - DATE
+DoD - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+IP - ORG
+IP - ORG
+IP - ORG
+IP - ORG
+2 - CARDINAL
+800-171A]17 - CARDINAL
+800-171A]17 - CARDINAL
+17 - CARDINAL
+NIST SP - ORG
+10 - CARDINAL
+18 - CARDINAL
+11 - CARDINAL
+2.13 - CARDINAL
+CUI - ORG
+two - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+second - ORDINAL
+Potential Assessment Considerations 
+• - ORG
+one - CARDINAL
+24 
+ 
+AC.L2-3.1.5 - DATE
+19 - CARDINAL
+11 - CARDINAL
+25 
+ 
+ - DATE
+day -to-day - DATE
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+20 - CARDINAL
+12 - CARDINAL
+2.13 - CARDINAL
+800-171A]21 - CARDINAL
+organizati onal - PERSON
+21 - CARDINAL
+11 - CARDINAL
+22 - CARDINAL
+12 - CARDINAL
+28 - DATE
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+23 - CARDINAL
+12 - CARDINAL
+24 - CARDINAL
+12 - CARDINAL
+2.13 - CARDINAL
+30 
+ 
+ - DATE
+3.1.2 - CARDINAL
+one - CARDINAL
+3.1.7 - CARDINAL
+AC.L2-3.1.7 - ORG
+AC - ORG
+L2-3.1.2 - CARDINAL
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+2.13 - CARDINAL
+KEY - ORG
+CMMC Assessment Guide - ORG
+32 
+ 
+AC.L2-3.1.8 - DATE
+Limit - ORG
+un - ORG
+logon - ORG
+2]26 - CARDINAL
+25 - CARDINAL
+12 - CARDINAL
+26 - CARDINAL
+pp - GPE
+12-13 - CARDINAL
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+33 - DATE
+CUI - ORG
+three - CARDINAL
+three - CARDINAL
+30 
+minutes - TIME
+Potential Assessment Considerations 
+• - ORG
+Privacy & Security Notices 
+CMMC Assessment Guide - ORG
+34 
+ 
+AC.L2-3.1.9 - DATE
+PRIVACY & SECURITY - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+the Office of General 
+Counsel - ORG
+27 - CARDINAL
+pp - GPE
+12-13 - CARDINAL
+28 - CARDINAL
+13 - CARDINAL
+Privacy & Security Notices 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+35 - DATE
+CUI - ORG
+One - CARDINAL
+CUI - ORG
+the 
+Department of Defense - ORG
+CUI - ORG
+Export Controlled - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+CUI - ORG
+CUI - ORG
+36 
+ 
+AC.L2-3.1.10 - DATE
+the end of the workday - DATE
+29 - CARDINAL
+13 - CARDINAL
+30 - CARDINAL
+13 - CARDINAL
+2.13 - CARDINAL
+37 
+ 
+ - DATE
+five minutes - TIME
+CUI - ORG
+five 
+minutes - TIME
+Potential Assessment Considerations 
+• - ORG
+38 
+ 
+AC.L2-3.1.11 - DATE
+31 - CARDINAL
+pp - GPE
+13-14 - CARDINAL
+32 - CARDINAL
+13 - CARDINAL
+2.13 - CARDINAL
+39 - DATE
+one hour - TIME
+33 - DATE
+CUI - ORG
+1 hour - TIME
+mu st log - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 3.1.11 - CARDINAL
+33 Review DoD Cybersecurity FAQ - ORG
+2.13 - CARDINAL
+40 - DATE
+VP Ns - PERSON
+34 - CARDINAL
+14 - CARDINAL
+35 - CARDINAL
+pp - GPE
+13-14 - CARDINAL
+2.13 - CARDINAL
+800-113 - PRODUCT
+CUI - ORG
+five - CARDINAL
+• Finally - PERSON
+CUI - ORG
+Verifying Compliance - WORK_OF_ART
+DHC - ORG
+2.13 - CARDINAL
+42 - DATE
+2 - CARDINAL
+2.13 - CARDINAL
+NSA - ORG
+CUI - ORG
+36 - CARDINAL
+NIST SP 800-171A - ORG
+14 - CARDINAL
+37 - CARDINAL
+14 - CARDINAL
+2.13 - CARDINAL
+44 
+ 
+ - DATE
+five - CARDINAL
+• Finally - PERSON
+CUI - ORG
+140 - CARDINAL
+Potential Assessment Considerations 
+• Are - ORG
+Transport L - ORG
+IPSec - ORG
+F IPS- - PRODUCT
+140 - CARDINAL
+2.13 - CARDINAL
+45 
+ 
+AC.L2-3.1.14 - DATE
+800-171A]38 - PRODUCT
+800-171A]38 - PRODUCT
+2]39 - CARDINAL
+CUI - ORG
+OSA - ORG
+five - CARDINAL
+38 - CARDINAL
+15 - CARDINAL
+39 - CARDINAL
+14 - CARDINAL
+2.13 - CARDINAL
+• Finally - PERSON
+CUI - ORG
+2 - CARDINAL
+2.13 - CARDINAL
+47 
+ 
+AC.L2-3.1.15 - DATE
+40 - CARDINAL
+15 - CARDINAL
+41 - CARDINAL
+14 - CARDINAL
+2.13 - CARDINAL
+48 - DATE
+p - ORG
+five - CARDINAL
+• Finally - PERSON
+Potential Assessment Considerations 
+• - ORG
+2.13 - CARDINAL
+49 - DATE
+KEY - ORG
+cri teria - PERSON
+42 - CARDINAL
+pp - GPE
+15-16 - CARDINAL
+43 - CARDINAL
+14 - CARDINAL
+2.13 - CARDINAL
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+2 - CARDINAL
+Wireless Access Protection 
+ - ORG
+2.13 - CARDINAL
+52 
+ 
+ - DATE
+44 - CARDINAL
+16 - CARDINAL
+45 - CARDINAL
+pp - GPE
+14-15 - CARDINAL
+Wireless Access Protection 
+ - ORG
+2.13 - CARDINAL
+53 - DATE
+Advanced 
+Encryption Standard - ORG
+AES - ORG
+User Service - ORG
+CUI - ORG
+CUI - ORG
+FIPS - ORG
+140 - CARDINAL
+CUI - ORG
+140 - CARDINAL
+RADIUS - ORG
+Potential Assessment Considerations 
+• - ORG
+2.13 - CARDINAL
+54 - DATE
+CUI - ORG
+2]47 - CARDINAL
+46 - CARDINAL
+16 - CARDINAL
+47 - CARDINAL
+15 - CARDINAL
+2.13 - CARDINAL
+55 
+ 
+ - DATE
+CUI - ORG
+800-124 - PRODUCT
+CUI - ORG
+iPads - PRODUCT
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+CUI - ORG
+Mobile 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+48 - CARDINAL
+17 - CARDINAL
+49 - CARDINAL
+15 - CARDINAL
+CUI - ORG
+Mobile 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+CUI - ORG
+three - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+• Finally - PERSON
+CUI - ORG
+SC.L2-3.13.10 - NORP
+CUI - ORG
+MDM - ORG
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+CUI - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+58 
+ 
+AC.L2-3.1.20 - DATE
+CUI - ORG
+Verify - PRODUCT
+External - ORG
+50 - CARDINAL
+17 - CARDINAL
+51 - CARDINAL
+pp - GPE
+15-16 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+third - ORDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+one - CARDINAL
+CMMC Assessment Scope - ORG
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+IP - ORG
+Virtual Private Network - ORG
+OSA - ORG
+2 3.1.20 - CARDINAL
+52.204-21 - TIME
+2.13 - CARDINAL
+61 
+ 
+ - DATE
+Limit - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+2]53 - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+52 - CARDINAL
+18 - CARDINAL
+53 - CARDINAL
+16 - CARDINAL
+62 
+ 
+ - DATE
+USB - ORG
+two - CARDINAL
+OSA - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+CUI - ORG
+CUI - ORG
+2 - CARDINAL
+Control Public Information - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+2]55 - CARDINAL
+Executive Orders - ORG
+the Privacy Act - LAW
+CUI - ORG
+54 - CARDINAL
+18 - CARDINAL
+55 - CARDINAL
+16 - CARDINAL
+Control Public Information - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+64 
+ 
+ - DATE
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+DoD - PERSON
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+2 - CARDINAL
+52.204-21 - DATE
+2.13 - CARDINAL
+Training - PERSON
+CUI - ORG
+addressi - ORG
+2]57 - CARDINAL
+56 - CARDINAL
+19 - CARDINAL
+57 - CARDINAL
+pp - GPE
+16-17 - CARDINAL
+66 
+ 
+ - DATE
+800-50 - CARDINAL
+DoD - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+2.13 - CARDINAL
+KEY - ORG
+2 - CARDINAL
+AT.L2-3.2.2 - PRODUCT
+2.13 - CARDINAL
+68 
+ 
+ - DATE
+800-171A]58 - PRODUCT
+800-171A]58 
+Examine - PRODUCT
+58 - CARDINAL
+pp - GPE
+19-20 - CARDINAL
+59 - CARDINAL
+17 - CARDINAL
+69 - DATE
+technic al controls - PERSON
+800-161 - CARDINAL
+3.2.1 - CARDINAL
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2.13 - CARDINAL
+70 
+ 
+ - DATE
+2]61 - CARDINAL
+60 - CARDINAL
+20 - CARDINAL
+61 - CARDINAL
+17 - CARDINAL
+2.13 - CARDINAL
+71 - DATE
+One - CARDINAL
+8:00 AM–5:00 PM - TIME
+9:00 PM - TIME
+additional hours - TIME
+Potential Assessment Considerations 
+• - ORG
+2 - CARDINAL
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+800-171A]62 - PRODUCT
+800-171A]62 - PRODUCT
+62 - CARDINAL
+21 - CARDINAL
+CMMC Assessment Guide - ORG
+73 
+ 
+ - DATE
+2]63 - CARDINAL
+third - ORDINAL
+CUI - ORG
+Monito - PERSON
+63 - CARDINAL
+pp - GPE
+17-18 - CARDINAL
+CMMC Assessment Guide - ORG
+74 
+ 
+ - DATE
+weeks - DATE
+months - DATE
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+75 
+ 
+AU.L2-3.3.2 - DATE
+un - ORG
+VoIP - ORG
+64 - CARDINAL
+pp - GPE
+21-22 - CARDINAL
+65 - CARDINAL
+18 - CARDINAL
+2.13 - CARDINAL
+76 - DATE
+IDs - PRODUCT
+CUI - ORG
+IP - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+Event Review 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+77 
+ 
+AU.L2-3.3.3 - DATE
+66 - CARDINAL
+22 - CARDINAL
+67 - CARDINAL
+pp - GPE
+18-19 - CARDINAL
+Event Review 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+annually - DATE
+Potential Assessment Considerations 
+• - ORG
+2 - CARDINAL
+2.13 - CARDINAL
+79 
+ 
+AU.L2-3.3.4 - DATE
+68 - CARDINAL
+22 - CARDINAL
+69 - CARDINAL
+19 - CARDINAL
+2.13 - CARDINAL
+80 - DATE
+Short Message Service - ORG
+CUI - ORG
+One day - DATE
+Potential Assessment Considerations 
+• - ORG
+securi - ORG
+2 - CARDINAL
+Audit Correlation 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+70 - CARDINAL
+23 - CARDINAL
+71 - CARDINAL
+19 - CARDINAL
+Audit Correlation 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+Application Programming Inter - ORG
+LAN - ORG
+CUI - ORG
+between 2:00 AM to 3:00 AM - TIME
+LAN - ORG
+between 2:00 AM - TIME
+the next 30 days - DATE
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+analy - NORP
+72 - CARDINAL
+NIST SP 800-171A - ORG
+23 - CARDINAL
+73 - CARDINAL
+19 - CARDINAL
+2.13 - CARDINAL
+84 - DATE
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+Coordinated Universal Time - ORG
+UTC - ORG
+Greenwich - GPE
+GMT - ORG
+UTC - ORG
+hundreds - CARDINAL
+tens - CARDINAL
+74 - CARDINAL
+pp - GPE
+23-24 - CARDINAL
+75 - CARDINAL
+19 - CARDINAL
+86 
+ 
+ - DATE
+CUI - ORG
+Potential Assessment Considerations 
+• Can - ORG
+Coordinated Universal Time - ORG
+UTC - ORG
+Network Time Protocol - ORG
+NTP - ORG
+2.13 - CARDINAL
+87 
+ 
+AU.L2-3.3.8 - DATE
+2]77 - CARDINAL
+76 - CARDINAL
+24 - CARDINAL
+77 - CARDINAL
+20 - CARDINAL
+2.13 - CARDINAL
+CUI - ORG
+daily - DATE
+Potential Assessment Considerations 
+• - ORG
+Audit Management 
+CMMC Assessment Guide - ORG
+78 - CARDINAL
+pp - GPE
+24-25 - CARDINAL
+79 - CARDINAL
+20 - CARDINAL
+Audit Management 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2.13 - CARDINAL
+80 - CARDINAL
+26 - CARDINAL
+2.13 - CARDINAL
+manufactur - PERSON
+81 - CARDINAL
+20 - CARDINAL
+2.13 - CARDINAL
+CUI - ORG
+three months - DATE
+Potential Assessment Considerations 
+• - ORG
+2.13 - CARDINAL
+94 - DATE
+82 - CARDINAL
+pp - GPE
+26-27 - CARDINAL
+83 - CARDINAL
+21 - CARDINAL
+2.13 - CARDINAL
+95 
+ 
+gateways - DATE
+800 - CARDINAL
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+2 - CARDINAL
+2.13 - CARDINAL
+organi zational - ORG
+84 - CARDINAL
+27 - CARDINAL
+85 - CARDINAL
+21 - CARDINAL
+2.13 - CARDINAL
+Configuration Control 
+Boards or Change Advisory Boards - ORG
+the Configuration 
+Control Boards or Change Advisory Boards - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+2.13 - CARDINAL
+800-171A]86 - PRODUCT
+800-171A]86 - PRODUCT
+Organizational - ORG
+86 - CARDINAL
+27 - CARDINAL
+87 - CARDINAL
+pp - GPE
+21-22 - CARDINAL
+2.13 - CARDINAL
+Potential Assessment Considerations 
+• - ORG
+88 - CARDINAL
+28 - CARDINAL
+2.13 - CARDINAL
+IP - ORG
+8:00 AM - TIME
+10:00 AM - TIME
+between 6:00 PM and 8:00 PM - TIME
+the appointed day - DATE
+89 - CARDINAL
+22 - CARDINAL
+Potential Assessment Considerations 
+• Are - ORG
+2.13 - CARDINAL
+one - CARDINAL
+90 - CARDINAL
+pp - GPE
+28-29 - CARDINAL
+91 - CARDINAL
+22 - CARDINAL
+2.13 - CARDINAL
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+Nonessential Functionality 
+ - ORG
+2.13 - CARDINAL
+105 
+ 
+CM.L2-3.4.7 - MONEY
+92 - CARDINAL
+NIST SP 800-171A - ORG
+29 - CARDINAL
+Nonessential Functionality 
+ - ORG
+2.13 - CARDINAL
+FTP - ORG
+FTP - ORG
+93 - CARDINAL
+pp - GPE
+22-23 - CARDINAL
+Nonessential Functionality 
+ - ORG
+2.13 - CARDINAL
+SSH - ORG
+22 - CARDINAL
+• SMTP - PERSON
+25 - CARDINAL
+UDP - ORG
+53 - CARDINAL
+443 - CARDINAL
+Potential Assessment Considerations 
+• Are - ORG
+2 3.4.7 - DATE
+2.13 - CARDINAL
+800-171A]94 - CARDINAL
+800-171A]94 - CARDINAL
+94 - CARDINAL
+NIST SP - ORG
+30 - CARDINAL
+95 - CARDINAL
+23 - CARDINAL
+2.13 - CARDINAL
+109 - CARDINAL
+Whitelisting - PERSON
+two - CARDINAL
+800-167 - PRODUCT
+two - CARDINAL
+Potential Assessment Considerations 
+• - ORG
+2 - CARDINAL
+User-Installed Software - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+2]97 - CARDINAL
+96 - CARDINAL
+30 - CARDINAL
+97 - CARDINAL
+23 - CARDINAL
+User-Installed Software - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+111 - CARDINAL
+Potential Assessment Considerations 
+• Are - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 112 
+ 
+Identification and Authentication (IA) 
+IA.L2-3.5.1 - PERCENT
+CUI - ORG
+800-171A]98 - CARDINAL
+800-171A]98 - CARDINAL
+MA C - ORG
+IP - ORG
+98 - CARDINAL
+31 - CARDINAL
+99 - CARDINAL
+23 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+113 - CARDINAL
+SW001 - PERSON
+SW002 - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+52.204-21 - DATE
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 114 
+ 
+IA.L2-3.5.2 - PERCENT
+CUI - ORG
+2]101 - CARDINAL
+one - CARDINAL
+Initial - ORG
+Default - ORG
+100 - CARDINAL
+31 - CARDINAL
+101 - CARDINAL
+24 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+next week - DATE
+Potential Assessment Considerations 
+• Are - ORG
+OSA - ORG
+MAC - ORG
+2 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+52.204 - CARDINAL
+2.13 - CARDINAL
+2]103 - CARDINAL
+two - CARDINAL
+102 - CARDINAL
+32 - CARDINAL
+103 - CARDINAL
+pp - GPE
+24-25 - CARDINAL
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+118 - CARDINAL
+two - CARDINAL
+two - CARDINAL
+two - CARDINAL
+CUI - ORG
+five - CARDINAL
+• Finally - PERSON
+MFA - ORG
+first - ORDINAL
+MFA - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+MFA - ORG
+MFA - ORG
+Potential Assessment Considerations 
+• - ORG
+2 3.5.3 - CARDINAL
+Replay-Resistant Authentication 
+CMMC Assessment Guide - ORG
+120 
+ 
+IA.L2-3.5.4 - DATE
+Employ - PERSON
+2]105 - CARDINAL
+one - CARDINAL
+104 - CARDINAL
+32 - CARDINAL
+105 - CARDINAL
+25 - CARDINAL
+Replay-Resistant Authentication 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+Transport Layer Security - ORG
+MFA - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+Identifier Reuse 
+ - PERSON
+2]107 - CARDINAL
+3.5.1 - CARDINAL
+106 - CARDINAL
+pp - GPE
+32-33 - CARDINAL
+107 - CARDINAL
+25 - CARDINAL
+Identifier Reuse 
+ - PERSON
+2.13 123 
+ 
+Example 
+ - PERCENT
+riley-laptop01 - ORG
+Riley - ORG
+Riley - ORG
+24 
+months - DATE
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+Identifier Handling 
+CMMC Assessment Guide - PERSON
+2.13 - CARDINAL
+124 
+ 
+IA.L2-3.5.6 - DATE
+personn el - PERSON
+2]109 - CARDINAL
+108 - CARDINAL
+33 - CARDINAL
+109 - CARDINAL
+25 - CARDINAL
+Identifier Handling 
+CMMC Assessment Guide - PERSON
+125 - CARDINAL
+the last 45 days - DATE
+the last 45 days - DATE
+Potential Assessment Considerations 
+• Are - ORG
+2 3.5.6 - CARDINAL
+Password Complexity 
+CMMC Assessment Guide - ORG
+2]111 - CARDINAL
+110 - CARDINAL
+pp - GPE
+33-34 - CARDINAL
+111 - CARDINAL
+25 - CARDINAL
+Password Complexity 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+Password - LOC
+Potential Assessment Considerations 
+• - ORG
+12 - CARDINAL
+Password Reuse 
+ - PERSON
+128 - CARDINAL
+Prohibit - NORP
+800-171A]112 - PRODUCT
+800-171A]112 - PRODUCT
+2]113 - CARDINAL
+112 - CARDINAL
+34 - CARDINAL
+113 - CARDINAL
+25 - CARDINAL
+Password Reuse 
+ - PERSON
+2.13 - CARDINAL
+Potential Assessment Considerations 
+• How - ORG
+2]115 - CARDINAL
+first - ORDINAL
+114 - CARDINAL
+34 - CARDINAL
+115 - CARDINAL
+25 - CARDINAL
+2.13 - CARDINAL
+131 - CARDINAL
+first - ORDINAL
+Potential Assessment Considerations 
+• Are - ORG
+logon - ORG
+2 - CARDINAL
+Cryptographically-Protected Passwords 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+132 
+ 
+ - DATE
+2]117 - CARDINAL
+one - CARDINAL
+one - CARDINAL
+one - CARDINAL
+116 - CARDINAL
+pp - GPE
+34-35 - CARDINAL
+117 - CARDINAL
+pp - GPE
+25-26 - CARDINAL
+Cryptographically-Protected Passwords 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+one - CARDINAL
+Potential Assessment Considerations 
+• Are - ORG
+one - CARDINAL
+2 - CARDINAL
+2.13 - CARDINAL
+2]119 - CARDINAL
+Obscuring - ORG
+118 - CARDINAL
+35 - CARDINAL
+119 - CARDINAL
+26 - CARDINAL
+e. g. - PERSON
+Potential Assessment Considerations 
+• - ORG
+2.13 - CARDINAL
+IR - ORG
+120 - CARDINAL
+36 - CARDINAL
+2.13 - CARDINAL
+2]121 - CARDINAL
+800 - CARDINAL
+800-86 - DATE
+800-101 - PRODUCT
+Software - ORG
+121 - CARDINAL
+26 - CARDINAL
+2.13 - CARDINAL
+First - ORDINAL
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+2 - CARDINAL
+2.13 - CARDINAL
+2]123 - CARDINAL
+122 - CARDINAL
+pp - GPE
+36-37 - CARDINAL
+123 - CARDINAL
+pp - GPE
+26-27 - CARDINAL
+2.13 - CARDINAL
+140 - CARDINAL
+Executive Orders - ORG
+800 - CARDINAL
+the Security Operations Center (SOC - ORG
+SOC - ORG
+daily - DATE
+the end of the day - DATE
+Two days later - DATE
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+2.13 - CARDINAL
+KEY - ORG
+2.13 - CARDINAL
+2]125 - CARDINAL
+NIST SP 800 -84 - ORG
+124 - CARDINAL
+37 - CARDINAL
+125 - CARDINAL
+27 - CARDINAL
+Potential Assessment Considerations 
+• - ORG
+2 3.6.3 - CARDINAL
+Perform Maintenance 
+CMMC Assessment Guide - PERSON
+2.13 - CARDINAL
+PERFORM MAINTENANCE 
+Perform - PERSON
+800-171A]126 - PRODUCT
+800-171A]126 - PRODUCT
+2]127 - CARDINAL
+informa - NORP
+126 - CARDINAL
+38 - CARDINAL
+127 - CARDINAL
+27 - CARDINAL
+Perform Maintenance 
+CMMC Assessment Guide - PERSON
+2.13 - CARDINAL
+145 - CARDINAL
+One - CARDINAL
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+2.13 - CARDINAL
+2]129 - CARDINAL
+CUI - ORG
+128 - CARDINAL
+38 - CARDINAL
+129 - CARDINAL
+pp - GPE
+27-28 - CARDINAL
+2.13 - CARDINAL
+Potential Assessment Considerations 
+• Are - ORG
+2.13 - CARDINAL
+CUI - ORG
+CUI - ORG
+2]131 - CARDINAL
+800-88 - PRODUCT
+zeros - CARDINAL
+130 - CARDINAL
+39 - CARDINAL
+131 - CARDINAL
+28 - CARDINAL
+2.13 - CARDINAL
+149 - CARDINAL
+one - CARDINAL
+Purge - GPE
+NIST SP - ORG
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+Media Inspection 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+2]133 - CARDINAL
+SI.L2-3.14.4 - ORG
+132 - CARDINAL
+39 - CARDINAL
+133 - CARDINAL
+28 - CARDINAL
+Media Inspection 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+151 
+ 
+ - DATE
+one - CARDINAL
+FTP - ORG
+FTP - ORG
+Potential Assessment Considerations 
+• Are - ORG
+third - ORDINAL
+2 - CARDINAL
+Nonlocal Maintenance 
+CMMC Assessment Guide - ORG
+NONLOCAL MAINTENANCE 
+Require - ORG
+2]135 - CARDINAL
+3.5.3 - CARDINAL
+134 - CARDINAL
+pp - GPE
+39-40 - CARDINAL
+135 - CARDINAL
+28 - CARDINAL
+Nonlocal Maintenance 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+Multifactor - PRODUCT
+at least two - CARDINAL
+scan - NORP
+two - CARDINAL
+five - CARDINAL
+• Finally - PERSON
+3.5.3 - CARDINAL
+Potential Assessment Considerations 
+• - ORG
+Nonlocal Maintenance 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+KEY - ORG
+Maintenance Personnel - PERSON
+sec - ORG
+2]137 - CARDINAL
+al systems - ORG
+Temporary - ORG
+one - CARDINAL
+136 - CARDINAL
+40 - CARDINAL
+137 - CARDINAL
+28 - CARDINAL
+Maintenance Personnel - PERSON
+2.13 - CARDINAL
+156 - CARDINAL
+12 hours - TIME
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+Media Protection 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+157 - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+Digital - ORG
+138 - CARDINAL
+41 - CARDINAL
+139 - CARDINAL
+29 - CARDINAL
+Media Protection 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+conducti - ORG
+CUI - ORG
+two - CARDINAL
+USB - ORG
+USB - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+Army - ORG
+USB - ORG
+USB - ORG
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+2 - CARDINAL
+Media Access 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+159 - CARDINAL
+Limit - ORG
+CUI - ORG
+800-171A]140 - PRODUCT
+CUI - ORG
+800-171A]140 
+Examine - PRODUCT
+Limit - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+140 - CARDINAL
+41 - CARDINAL
+141 - CARDINAL
+29 - CARDINAL
+Media Access 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+160 - CARDINAL
+CUI - ORG
+Army - ORG
+USB - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+2 3.8.2 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+2]143 - CARDINAL
+142 - CARDINAL
+pp - GPE
+41-42 - CARDINAL
+143 - CARDINAL
+29 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+NARA - ORG
+800-88 - PRODUCT
+Media - ORG
+USB - ORG
+CUI - ORG
+Revision 1, Guidelines for Media Sanitization - LAW
+Potential Assessment Considerations 
+• - ORG
+2 3.8.3 - CARDINAL
+52.204-21 - DATE
+2.13 - CARDINAL
+CUI - ORG
+800-171A]144 - PRODUCT
+CUI - ORG
+CUI - ORG
+CUI - ORG
+800-171A]144 - PRODUCT
+Organizationa - ORG
+2]145 - CARDINAL
+Executive Orders - ORG
+CUI - ORG
+The National Archives and Records Administration - ORG
+NARA - ORG
+144 - CARDINAL
+42 - CARDINAL
+145 - CARDINAL
+30 - CARDINAL
+146 - CARDINAL
+NARA - GPE
+CUI Notice 2019-01 - ORG
+Controlled Unclassified Information - ORG
+CUI - ORG
+Labels - PERSON
+2.13 - CARDINAL
+164 - CARDINAL
+DoD - ORG
+CUI - ORG
+USB - ORG
+USB - ORG
+CUI - ORG
+USB - ORG
+CUI - ORG
+NARA - GPE
+Potential Assessment Considerations 
+• Are - ORG
+CUI - ORG
+2.13 - CARDINAL
+CUI - ORG
+800-171A]147 - PRODUCT
+CUI - ORG
+CUI - ORG
+800-171A]147 - PRODUCT
+2]148 - CARDINAL
+147 - CARDINAL
+42 - CARDINAL
+148 - CARDINAL
+30 - CARDINAL
+2.13 - CARDINAL
+166 - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+USB - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+2.13 - CARDINAL
+CUI - ORG
+CUI - ORG
+2]150 - CARDINAL
+USB - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+149 - CARDINAL
+43 - CARDINAL
+150 - CARDINAL
+NIST SP - ORG
+30 - CARDINAL
+2.13 - CARDINAL
+CUI - ORG
+CUI - ORG
+MP.L2- - CARDINAL
+3.8.5 - CARDINAL
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+CUI - ORG
+140 - CARDINAL
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+169 - CARDINAL
+2]152 - CARDINAL
+151 - CARDINAL
+43 - CARDINAL
+152 - CARDINAL
+pp - GPE
+30-31 - DATE
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+170 - CARDINAL
+USB - ORG
+USB - ORG
+USB - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+171 - CARDINAL
+2]154 - CARDINAL
+USB - ORG
+153 - CARDINAL
+43 - CARDINAL
+154 - CARDINAL
+31 - CARDINAL
+CMMC Assessment Guide - ORG
+MP.L2 - NORP
+One day - DATE
+USB - ORG
+Potential Assessment Considerations 
+• - ORG
+173 - CARDINAL
+CUI - ORG
+CUI - ORG
+2]156 - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+155 - CARDINAL
+44 - CARDINAL
+156 - CARDINAL
+31 - CARDINAL
+2.13 - CARDINAL
+NAS - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 3.8.9 - CARDINAL
+Screen Individuals 
+ - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+175 - CARDINAL
+Screen - ORG
+CUI - ORG
+CUI - ORG
+2]158 - CARDINAL
+CUI - ORG
+Executive Orders - ORG
+CUI - ORG
+157 - CARDINAL
+45 - CARDINAL
+158 - CARDINAL
+31 - CARDINAL
+Screen Individuals 
+ - ORG
+CMMC Assessment Guide - ORG
+PS.L2-3.9.1 - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+CUI - ORG
+Personnel Actions 
+ - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+2]160 - CARDINAL
+CUI - ORG
+Exit - LOC
+159 - CARDINAL
+45 - CARDINAL
+160 - CARDINAL
+pp - GPE
+31-32 - CARDINAL
+Personnel Actions 
+ - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+178 - CARDINAL
+Exit - LOC
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+3.5.1 - CARDINAL
+CUI - ORG
+Personnel Actions 
+ - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+179 - CARDINAL
+CUI - ORG
+one - CARDINAL
+Potential Assessment Considerations 
+• - ORG
+2 - CARDINAL
+Limit Physical Access - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+180 - CARDINAL
+CUI - ORG
+Limit - ORG
+2]162 - CARDINAL
+161 - CARDINAL
+46 - CARDINAL
+162 - CARDINAL
+32 - CARDINAL
+Limit Physical Access - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+181 
+ 
+regulations - MONEY
+Potential Assessment Considerations 
+• Are - ORG
+2 3.10.1 - CARDINAL
+52.204-21 - DATE
+3.10.2 - CARDINAL
+800-171 R2 - PRODUCT
+183 - CARDINAL
+Potential Assessment Considerations 
+• - ORG
+3.10.3 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+3.10.3 - CARDINAL
+CUI - ORG
+Escort - PRODUCT
+2]164 - CARDINAL
+163 - CARDINAL
+47 - CARDINAL
+164 - CARDINAL
+32 - CARDINAL
+3.10.3 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+185 - CARDINAL
+Potential Assessment Considerations 
+• Are - ORG
+2 3.10.3 - CARDINAL
+52.204-21 - DATE
+3.10.4 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+3.10.4 - CARDINAL
+CUI - ORG
+2]166 - CARDINAL
+PIV - ORG
+165 - CARDINAL
+47 - CARDINAL
+166 - CARDINAL
+pp - GPE
+32-33 - CARDINAL
+3.10.4 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+Fridays - DATE
+one year - DATE
+Potential Assessment Considerations 
+• Are - ORG
+2 3.10.4 - CARDINAL
+52.204-21 - DATE
+Manage Physical Access - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+2]168 - CARDINAL
+167 - CARDINAL
+pp - GPE
+47-48 - CARDINAL
+168 - CARDINAL
+33 - CARDINAL
+Manage Physical Access - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+today - DATE
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 3.10.5 - CARDINAL
+52.204-21 - DATE
+2.13 - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+personn el - PERSON
+2]170 - CARDINAL
+NIST SP 800 -46 - ORG
+169 - CARDINAL
+48 - CARDINAL
+170 - CARDINAL
+33 - CARDINAL
+2.13 - CARDINAL
+191 
+ 
+ - DATE
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+192 
+ 
+Risk Assessment - MONEY
+CUI - ORG
+CUI - ORG
+2]172 - CARDINAL
+171 - CARDINAL
+49 - CARDINAL
+172 - CARDINAL
+33 - CARDINAL
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+800 - CARDINAL
+Risk Assessment - ORG
+3.11.1 - CARDINAL
+Risk Assessment - ORG
+Vulnerability 
+Remediation - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+173 - CARDINAL
+Guide for Conducting Risk Assessments - ORG
+September 2012 - DATE
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+2 3.11.1 - CARDINAL
+2.13 - CARDINAL
+800-171A]174 - PRODUCT
+800-171A]174 - PRODUCT
+174 - CARDINAL
+pp - GPE
+49-50 - CARDINAL
+2]175 - CARDINAL
+three - CARDINAL
+Sec - ORG
+Content Automated Protocol - ORG
+SCAP)-validated - ORG
+the Common Vulnerabilities and Exposures - ORG
+the Common Weakness 
+Enumeration - ORG
+CWE - ORG
+the National Vulnerability Database - ORG
+NVD - ORG
+scan - NORP
+the Common Vulnerability Scoring System - ORG
+800 - CARDINAL
+CMMC - ORG
+175 - CARDINAL
+pp - GPE
+33-34 - CARDINAL
+2.13 - CARDINAL
+Risk Assessment - ORG
+3.11.2 - CARDINAL
+3.11.1 - CARDINAL
+each quarter - DATE
+Potential Assessment Considerations 
+• - ORG
+2 3.11.2 - CARDINAL
+Vulnerability Remediation 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+800-171A]176 - PRODUCT
+800-171A]176 - PRODUCT
+2]177 - CARDINAL
+3.11.2 - CARDINAL
+first - ORDINAL
+176 - CARDINAL
+50 - CARDINAL
+177 - CARDINAL
+34 - CARDINAL
+Vulnerability Remediation 
+CMMC Assessment Guide - ORG
+3.12.2 - CARDINAL
+RA.L2-3.11.3 - PERSON
+3.12.2 - CARDINAL
+Each quarter - DATE
+a later date - DATE
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+3.12.1 - CARDINAL
+Security Control Assessment 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+3.12.1 - CARDINAL
+sec - ORG
+2]179 - CARDINAL
+178 - CARDINAL
+51 - CARDINAL
+179 - CARDINAL
+pp - GPE
+34-35 - CARDINAL
+3.12.1 - CARDINAL
+Security Control Assessment 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+201 - CARDINAL
+NIST SP 800 -53 - ORG
+800-53A - CARDINAL
+3.12.1 - CARDINAL
+SSP - ORG
+3.12.1 - CARDINAL
+Security Control Assessment 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+at least annually - CARDINAL
+Plan of Action 
+ - WORK_OF_ART
+2]181 - CARDINAL
+CUI - ORG
+180 - CARDINAL
+51 - CARDINAL
+181 - CARDINAL
+35 - CARDINAL
+Plan of Action 
+ - WORK_OF_ART
+2.13 - CARDINAL
+RA.L2-3.11.1 - PERSON
+3.12.2 - CARDINAL
+3.12.2 - CARDINAL
+CMMC - ORG
+32 - CARDINAL
+CFR § - ORG
+170.21 - CARDINAL
+POA &M - ORG
+OSA - ORG
+Conditional Level 2 - ORG
+C3PAO - ORG
+Conditional Level - ORG
+DIBCAC - ORG
+180 day - DATE
+one - CARDINAL
+Potential Assessment Considerations 
+• - ORG
+Plan of Action 
+ - WORK_OF_ART
+2.13 - CARDINAL
+2.13 - CARDINAL
+206 
+ 
+CA.L2-3.12.3 - DATE
+800-171A]182 - PRODUCT
+800-171A]182 - PRODUCT
+2]183 - CARDINAL
+Effectiveness - ORG
+182 - CARDINAL
+52 - CARDINAL
+183 - CARDINAL
+35 - CARDINAL
+2.13 - CARDINAL
+800-137 - PRODUCT
+next year - DATE
+third - ORDINAL
+Potential Assessment Considerations 
+• Are - ORG
+2 3.12.3 - CARDINAL
+2.13 - CARDINAL
+208 
+ 
+CA.L2-3.12.4 - DATE
+800-171A]184 - PRODUCT
+800-171A]184 - PRODUCT
+184 - CARDINAL
+52 - CARDINAL
+2]185 - CARDINAL
+CUI - ORG
+800 - CARDINAL
+SSP - ORG
+SSP - ORG
+the CMMC Assessment Scope - ORG
+SSP - ORG
+DFARS - ORG
+252.204-7012 - DATE
+SSP - ORG
+SSP - ORG
+• CMMC Assessment Scope  Description - ORG
+• Identified and Approved Security Requirements - ORG
+Executive Orders - ORG
+185 - CARDINAL
+pp - GPE
+35-36 - DATE
+186 - CARDINAL
+SSP - ORG
+2.13 - CARDINAL
+210 
+ 
+• Implementation Method for Security - PRODUCT
+• Connections - ORG
+• Defined Frequency of Updates - ORG
+SSP - ORG
+SC.L2-3.13.2 - NORP
+SSP - ORG
+SSP - ORG
+CUI - ORG
+SSP - ORG
+SSP - ORG
+SSP - ORG
+each year - DATE
+Potential Assessment Considerations 
+• - ORG
+SSP - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+SC - ORG
+CUI - ORG
+187 - CARDINAL
+53 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+2]188 - CARDINAL
+third - ORDINAL
+800-41 - PRODUCT
+800-125B - PRODUCT
+one - CARDINAL
+first - ORDINAL
+188 - CARDINAL
+36 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+daily - DATE
+Potential Assessment Considerations 
+• - ORG
+one - CARDINAL
+Demilitarized Zone - FAC
+DMZ - ORG
+2 3.13.1 - CARDINAL
+52.204-21 - DATE
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+214 
+ 
+SC.L2-3.13.2 - DATE
+Employ - PERSON
+189 - CARDINAL
+pp - GPE
+53-54 - CARDINAL
+CMMC Assessment Guide - ORG
+2]190 - CARDINAL
+190 - CARDINAL
+pp - GPE
+36-37 - CARDINAL
+CMMC Assessment Guide - ORG
+Potential Assessment Considerations 
+• - ORG
+Role Separation 
+ - PERSON
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+191 - CARDINAL
+54 - CARDINAL
+192 - CARDINAL
+37 - CARDINAL
+Role Separation 
+ - PERSON
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+day -to-day - DATE
+Potential Assessment Considerations 
+• Are - ORG
+2 3.13.3 - CARDINAL
+3.13.4 - CARDINAL
+2.13 - CARDINAL
+2]194 - CARDINAL
+193 - CARDINAL
+pp - GPE
+54-55 - CARDINAL
+194 - CARDINAL
+37 - CARDINAL
+3.13.4 - CARDINAL
+2.13 - CARDINAL
+one - CARDINAL
+Meltdown - PERSON
+Spectre - PERSON
+Potential Assessment Considerations 
+• Are - ORG
+2 3.13.4 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+221 
+ 
+ - DATE
+CUI - ORG
+2 - CARDINAL
+NIST SP 800 -41 - ORG
+195 - CARDINAL
+55 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+DMZ - ORG
+One - CARDINAL
+DMZ - ORG
+Potential Assessment Considerations 
+• Are - ORG
+VLAN - ORG
+2 3.13.5 - CARDINAL
+52.204 - CARDINAL
+196 - CARDINAL
+pp - GPE
+37-38 - DATE
+SC.L2-3.13.6 - NORP
+Exception 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+223 - CARDINAL
+NETWORK - ORG
+EXCEPTION 
+Deny - PERSON
+800-171A]197 - PRODUCT
+800-171A]197 - PRODUCT
+2]198 - CARDINAL
+197 - CARDINAL
+55 - CARDINAL
+198 - CARDINAL
+38 - CARDINAL
+SC.L2-3.13.6 - NORP
+Exception 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+224 
+ 
+ - EVENT
+SC.L2-3.13.6 - NORP
+SC.L2-3.13.1 - NORP
+CUI - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 3.13.6 - CARDINAL
+SC.L2-3.13.7 - ORG
+CMMC Assessment Guide - ORG
+2]200 - CARDINAL
+199 - CARDINAL
+NIST SP 800-171A - ORG
+56 - CARDINAL
+200 - CARDINAL
+38 - CARDINAL
+SC.L2-3.13.7 - ORG
+CMMC Assessment Guide - ORG
+Split - PERSON
+two - CARDINAL
+Split - PERSON
+Potential Assessment Considerations 
+• - ORG
+2 3.13.7 - DATE
+2.13 - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+2]202 - CARDINAL
+201 - CARDINAL
+56 - CARDINAL
+202 - CARDINAL
+38 - CARDINAL
+SC.L2-3.13.8 - ORG
+2.13 - CARDINAL
+228 - CARDINAL
+CUI - ORG
+TLS - ORG
+TLS - ORG
+CUI - ORG
+SC.L2-3.13.8 - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+FTP - ORG
+CUI - ORG
+the NIST Cryptographic Module Validation 
+Program - ORG
+the “FIPS Compliance - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 - CARDINAL
+2.13 - CARDINAL
+2]204 - CARDINAL
+TCP/IP - ORG
+203 - CARDINAL
+57 - CARDINAL
+204 - CARDINAL
+pp - GPE
+38-39 - CARDINAL
+SC.L2-3.13.9 - ORG
+60 minutes - TIME
+60 minutes - TIME
+Potential Assessment Considerations 
+• Are - ORG
+2 3.13.9 - CARDINAL
+2.13 - CARDINAL
+231 - CARDINAL
+KEY MANAGEMENT 
+Establish - ORG
+2]206 - CARDINAL
+Executive Orders - ORG
+Develop - ORG
+205 - CARDINAL
+57 - CARDINAL
+206 - CARDINAL
+39 - CARDINAL
+2.13 - CARDINAL
+first - ORDINAL
+second - ORDINAL
+C. 
+Key - PERSON
+NIST SP - ORG
+C. Key - PERSON
+NIST SP - ORG
+1 - CARDINAL
+2 - CARDINAL
+3 - CARDINAL
+CUI - ORG
+CUI - ORG
+the Public Key Infrastructure - ORG
+PKI - ORG
+one year - DATE
+Potential Assessment Considerations 
+• Are - ORG
+2.13 - CARDINAL
+233 
+ 
+KEY - MONEY
+2 - CARDINAL
+CUI Encryption 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+234 
+ 
+SC.L2-3.13.11 - DATE
+CUI - ORG
+CUI - ORG
+CUI - ORG
+2]208 - CARDINAL
+NSA - ORG
+140 - CARDINAL
+207 - CARDINAL
+pp - GPE
+57-58 - DATE
+208 - CARDINAL
+39 - CARDINAL
+CUI Encryption 
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+OSA - ORG
+OSA - ORG
+MP.L2 - NORP
+CUI - ORG
+CUI - ORG
+CUI - ORG
+NIST - ORG
+CUI - ORG
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+2 3.13.11 - DATE
+SC.L2 - NORP
+2.13 - CARDINAL
+236 
+ 
+SC.L2-3.13.12 - DATE
+2]210 - CARDINAL
+one - CARDINAL
+209 - CARDINAL
+58 - CARDINAL
+210 - CARDINAL
+39 - CARDINAL
+SC.L2-3.13.12 - NORP
+237 - CARDINAL
+Potential Assessment Considerations 
+• Are - ORG
+2 3.13.12 - CARDINAL
+2.13 - CARDINAL
+238 
+ 
+SC.L2-3.13.13 - DATE
+2]212 - CARDINAL
+Java - PERSON
+JavaScript - PERSON
+Postscript - ORG
+PDF - ORG
+Flash - PERSON
+VBScript - ORG
+211 - CARDINAL
+pp - GPE
+58-59 - CARDINAL
+212 - CARDINAL
+pp - GPE
+39-40 - CARDINAL
+2.13 - CARDINAL
+first - ORDINAL
+second - ORDINAL
+Flash - PERSON
+Java - PERSON
+One - CARDINAL
+the Change Review Board - ORG
+the year - DATE
+Potential Assessment Considerations 
+• Are - ORG
+Java - PERSON
+JavaScript - PERSON
+PDF - ORG
+Flash - PERSON
+Shockwave, Postscript - ORG
+VBScript - ORG
+Java - PERSON
+JavaScript - ORG
+PDF - ORG
+Flash - PERSON
+VBScript - ORG
+2 - CARDINAL
+2.13 - CARDINAL
+VoIP - PERSON
+VoIP - PERSON
+VoIP - PERSON
+VoIP - PERSON
+VoIP - ORG
+VoIP - ORG
+log s - PRODUCT
+VoIP - PERSON
+VoIP - PERSON
+VoIP - PERSON
+2]214 - CARDINAL
+the Plain Old Telephone Service - ORG
+POTS - ORG
+Integrated Services Digital Network - ORG
+ISDN - ORG
+Fiber 
+Distributed Data Interface - ORG
+FDDI - ORG
+POTS - ORG
+VoIP - PERSON
+VoIP - PERSON
+VoIP - PERSON
+800 - CARDINAL
+Voice Over IP Systems - ORG
+213 - CARDINAL
+59 - CARDINAL
+214 - CARDINAL
+40 - CARDINAL
+VoIP - PERSON
+VoIP - ORG
+VoIP - PERSON
+VoIP - PERSON
+VoIP - ORG
+VoIP - PERSON
+VoIP - PERSON
+VoIP - PERSON
+VoIP - ORG
+monthly - DATE
+VoIP - ORG
+Potential Assessment Considerations 
+• Are VoIP - ORG
+VoIP - ORG
+VoIP - PERSON
+2 3.13.14 - DATE
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+2]216 - CARDINAL
+215 - CARDINAL
+59 - CARDINAL
+216 - CARDINAL
+40 - CARDINAL
+CMMC Assessment Guide - ORG
+243 - CARDINAL
+two - CARDINAL
+one - CARDINAL
+TLS - ORG
+Potential Assessment Considerations 
+• - ORG
+2 3.13.15 - CARDINAL
+2.13 - CARDINAL
+CUI - ORG
+CUI - ORG
+2]218 - CARDINAL
+CUI - ORG
+CUI - ORG
+217 - CARDINAL
+pp - GPE
+59-60 - CARDINAL
+218 - CARDINAL
+40 - CARDINAL
+2.13 - CARDINAL
+CUI - ORG
+one - CARDINAL
+CUI - ORG
+CUI - ORG
+CUI - ORG
+SC.L2-3.13.16 - ORG
+CUI - ORG
+MP.L2 - NORP
+CUI - ORG
+SC.L2-3.13.16 - ORG
+CUI - ORG
+CUI - ORG
+CUI - ORG
+the end of the day - DATE
+Friday - DATE
+Potential Assessment Considerations 
+• - ORG
+CUI - ORG
+2 3.13.16 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+3.14.1 - CARDINAL
+CUI - ORG
+219 - CARDINAL
+61 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2]220 - CARDINAL
+the Common Weakness Enumeration - ORG
+CWE - ORG
+NIST SP - ORG
+OSA - ORG
+every week - DATE
+each week - DATE
+each month - DATE
+weekly - DATE
+daily - DATE
+220 - CARDINAL
+pp - GPE
+40-41 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+248 
+ 
+Potential Assessment Considerations 
+• - ORG
+days - DATE
+2 3.14.1 - CARDINAL
+52.204-21 - DATE
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+CUI - ORG
+scan - NORP
+2]222 - CARDINAL
+Trojan - PERSON
+UUENCODE - ORG
+221 - CARDINAL
+pp - GPE
+61-62 - CARDINAL
+222 - CARDINAL
+41 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+800 - CARDINAL
+Potential Assessment Considerations 
+• - ORG
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+2 3.14.2 - CARDINAL
+52.204-21 - TIME
+Security Alerts & Advisories - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+SECURITY ALERTS & ADVISORIES 
+Monitor - ORG
+2]224 - CARDINAL
+United States Computer Emergency Readiness Team - ORG
+US - GPE
+223 - CARDINAL
+62 - CARDINAL
+224 - CARDINAL
+41 - CARDINAL
+Security Alerts & Advisories - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+800 - CARDINAL
+Solicit - PERSON
+RSS - ORG
+each week - DATE
+Potential Assessment Considerations 
+• Are - ORG
+2 3.14.3 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+800-171A]225 - PRODUCT
+800-171A]225 - PRODUCT
+scan - NORP
+2]226 - CARDINAL
+225 - CARDINAL
+pp - GPE
+62-63 - CARDINAL
+226 - CARDINAL
+pp - GPE
+41-42 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+hourly - TIME
+daily - DATE
+every day - DATE
+Potential Assessment Considerations 
+• - ORG
+2 3.14.4 - CARDINAL
+52.204 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+CUI - ORG
+scan - NORP
+2]228 - CARDINAL
+227 - CARDINAL
+63 - CARDINAL
+228 - CARDINAL
+42 - CARDINAL
+CUI Data - ORG
+CMMC Assessment Guide - ORG
+2.13 - CARDINAL
+Unicode - ORG
+USB - ORG
+Potential Assessment Considerations 
+• Are - ORG
+USB - ORG
+2 3.14.5 - CARDINAL
+52.204-21 - DATE
+2.13 - CARDINAL
+800-171A]229 - PRODUCT
+800-171A]229 - PRODUCT
+229 - CARDINAL
+pp - GPE
+63-64 - DATE
+2.13 - CARDINAL
+2]230 - CARDINAL
+800 - CARDINAL
+230 - CARDINAL
+pp - GPE
+42-43 - CARDINAL
+3.14.6 - CARDINAL
+each week - DATE
+CUI - ORG
+Potential Assessment Considerations 
+• Are - ORG
+2 3.14.6 - CARDINAL
+2.13 - CARDINAL
+800-171A]231 - PRODUCT
+800-171A]231 - PRODUCT
+Continuous - PERSON
+2]232 - CARDINAL
+Monitoring - ORG
+231 - CARDINAL
+64 - CARDINAL
+232 - CARDINAL
+43 - CARDINAL
+2.13 - CARDINAL
+800 - CARDINAL
+one - CARDINAL
+days - DATE
+2 - CARDINAL
+2.13 - CARDINAL
+CMVP Cryptographic Module Validation Program - ORG
+CUI Controlled Unclassified Information - ORG
+DFARS Defense Federal Acquisition Regulation Supplement - ORG
+DoD Department of Defense - ORG
+Digital Video Disc - ORG
+2.13 - CARDINAL
+LAN Local Area Network - ORG
+MA Maintenance - PERSON
+MDM Mobile Device Management - ORG
+MFA Multifactor Authentication - ORG
+Media Protection - ORG
+NARA National Archives and Records Administration - ORG
+NTP Network Time Protocol - ORG
+PE Physical Protection 
+PIV Personal Identity Verification 
+PKI Public Key Infrastructure 
+ - ORG
+Plain Old Telephone Service 
+ - ORG
+PS Personnel Security 
+RADIUS Remote Authentication Dial-in User Service - ORG
+SOC Security Operations Center  
+ 
+ 
+Appendix - ORG
+2.13 - CARDINAL
+Universal Resource Locator - ORG
+Universal Serial Bus - ORG
+VLAN Virtual Local Area Network 
+VoIP Voice - ORG
+Protected Access-Pre-shared - ORG
+Key 
+ 
+ 
+ 
+CMMC Assessment Guide - ORG
+2.13 267 - CARDINAL
